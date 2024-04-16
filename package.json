@@ -1,0 +1,30 @@
+{
+    "name": "english-to-latin-translator",
+    "version": "1.0.0",
+    "description": "An English to Latin translator app using OpenAI's GPT-3.5 and GPT-4",
+    "main": "server/index.ts",
+    "scripts": {
+        "start": "bun server/run.ts",
+        "dev": "bun i && bun --watch server/index.ts"
+    },
+    "dependencies": {
+        "@types/cookie-parser": "latest",
+        "@types/express": "latest",
+        "@types/node": "latest",
+        "@types/react": "latest",
+        "@types/react-dom": "latest",
+        "bun": "latest",
+        "cookie-parser": "latest",
+        "esbuild": "latest",
+        "express": "latest",
+        "fs": "latest",
+        "http": "latest",
+        "openai": "latest",
+        "path": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "socket.io": "latest",
+        "typescript": "latest",
+        "socket.io-client": "latest"
+    }
+}
