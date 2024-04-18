@@ -30,13 +30,19 @@ To run this application, you will need:
     brew install node
     ```
 
-#### 2. Install Bun
-- **Both Windows and Mac:**
+#### 2. Install Bun https://bun.sh/docs/installation
+- **Windows:**
+  Bun requires a minimum of Windows 10 
+  To install, paste this into a terminal:
+   ```
+  powershell -c "irm bun.sh/install.ps1|iex"
+   ```
+- **Mac:**
   - Open your terminal and run:
     ```
-    curl https://bun.sh/install | bash
+    curl -fsSL https://bun.sh/install | bash
     ```
-  - Follow the on-screen instructions to complete the installation.
+  -  Follow the on-screen instructions to complete the installation.
 
 ### Downloading the Code
 - Navigate to the GitHub repository and download the ZIP file or clone the repository using:
