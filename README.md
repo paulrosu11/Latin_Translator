@@ -1,4 +1,5 @@
 
+
 # Fine Tuned GPT 3.5 and GPT 4 based Latin Translator 
 
 This is a Latin to English translator web interface that utilizes OpenAI's API to perform translations. This repository is made to be able to be easily installed and set up on any device locally and give access to the tool beyond the [website](https://translate.osmoslearn.com). By the nature of the translator, there are associated API costs to translating a given text. Because of the multiple layers of API calls in this model, the estimated cost lies at about $400 per million [tokens](https://platform.openai.com/tokenizer). On a small scale this cost is fairly insignicant, but keeping a website public for an extended period of time is not realistic as of now. This means to utilize this code, I've provided instructions to make an OpenAI account and have each user pay for their own usage and fine tune their own model. Don't worry this is made all very easy and should only take a few minutes. 
@@ -13,6 +14,7 @@ To run this application, you will need:
 - Node.js and npm
 - Bun 
 - An OpenAI account with an API key
+- Potentially a Github account 
 
 ### Setting Up Your Environment
 
@@ -30,9 +32,9 @@ To run this application, you will need:
     brew install node
     ```
 
-#### 2. Install Bun https://bun.sh/docs/installation
+#### 2. Install [Bun]( https://bun.sh/docs/installation)
 - **Windows:**
-  Bun requires a minimum of Windows 10 
+  Bun requires a minimum of Windows 10. 
   To install, paste this into a terminal:
    ```
   powershell -c "irm bun.sh/install.ps1|iex"
@@ -45,14 +47,48 @@ To run this application, you will need:
   -  Follow the on-screen instructions to complete the installation.
 
 ### Downloading the Code
-- Navigate to the GitHub repository and download the ZIP file or clone the repository using:
-git clone <https://github.com/paulrosu11/Latin_Translator.git>
-- Extract the ZIP file or navigate into the cloned repository folder.
-- GitHub's instructions are [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+-It is possible to download the code as a ZIP file from the repository however, in my experience this tends to cause authentication issues. The preferable series of steps are as follows:
+
+#### Creating a GitHub Account
+
+If you do not already have a GitHub account, you will need to create one. Follow these steps:
+
+1. Go to the [GitHub Sign Up page](https://github.com/join).
+2. Fill out the form with your username, email address, and password.
+3. Verify your account by following the instructions sent to your email.
+4. Once your account is set up, you can proceed to clone the repository.
+
+#### Setting Up an IDE
+We recommend using Visual Studio Code (VSCode) as it is free, open-source, and supports a wide range of development activities.
+
+- **Windows & Mac:**
+1.  - Download and install VSCode from the [official website](https://code.visualstudio.com/Download).
+2. Navigate to the Extensions view by clicking on the square icon on the sidebar or pressing `Ctrl+Shift+X`.
+3. Search for the `GitHub Pull Requests and Issues` extension and install it.
+4. Once installed, authenticate with GitHub by following the prompts which appear when you start a Git operation within VSCode.
+5. 
+
+#### Cloning the Repository
+To clone the repository using VSCode, follow these steps:
+
+- Open VSCode.
+- Go to the `View` menu and select `Command Palette`.
+- Type `Git: Clone` and press Enter.
+- Paste the URL of the repository when prompted.
+- Choose a local directory to clone the repository into.
+- Once cloned, open the repository folder in VSCode.
+
+Alternatively, you can clone using the terminal:
+
+- Open Terminal on Mac or PowerShell on Windows.
+- Navigate to the directory where you want to clone the repository.
+- Type `git clone https://github.com/your-username/your-repo-name.git` and press Enter.
+- Enter your GitHub credentials if prompted.
+
 ### Configuring the OpenAI API Key
 - Create an account at [OpenAI](https://platform.openai.com/signup).
 - Once logged in, navigate to API keys section and create a new key.
-- In your project directory, find the file named `translate.ts` and replace `"replace with your api key"` on line 6 with your newly generated API key.
+- In your project directory, find the file named `translate.ts`under the folder `server` and replace `"replace with your api key"` on line 6 with your newly generated API key.
 
 ### Fine-Tuning the Model
 - To fine-tune a model based on the provided data:
@@ -61,8 +97,14 @@ git clone <https://github.com/paulrosu11/Latin_Translator.git>
 
 ### Running the Application
 - Open a terminal at the project folder.
-- Execute the following command to install dependencies:
-npm install
+	-- **Windows:**
+		1.  Open Windows File Explorer
+		2.  Navigate to the parent folder of the target folder (the folder you want to open a terminal window into)
+		3.  Hold down the Shift key and hover the mouse over the target folder
+		4.  Right-click on the folder and select  **Open PowerShell window here** 
+	- For Mac 
+		 1. Open a Finder window, then navigate to the folder you want to use.
+		 2.  Control-click the folder in the path bar, then choose  **New Terminal Tab at Folder**.
 - To start the application, run:
 bun run dev
 - Open your browser and access http://localhost:8001 to start using the Latin to English translator.
