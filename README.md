@@ -50,7 +50,7 @@ git clone <https://github.com/paulrosu11/Latin_Translator.git>
 
 ### Fine-Tuning the Model
 - To fine-tune a model based on the provided data:
-- Navigate to [OpenAI's fine-tuning page](https://platform.openai.com/docs/guides/fine-tuning), follow the instructions to submit my training data.
+- Navigate to [OpenAI's fine-tuning page](https://platform.openai.com/docs/guides/fine-tuning), follow the instructions to submit my training data included in the code you downloaded. 
 - Once the fine-tuning job is complete, replace `"Replace with your fine tuned model name, should look like ft:gpt-3.5-turbo-0125:..."` on line 51 in the `translate.ts` file with the job name provided by OpenAI.
 
 ### Running the Application
@@ -59,7 +59,7 @@ git clone <https://github.com/paulrosu11/Latin_Translator.git>
 npm install
 - To start the application, run:
 bun run dev
-- Open your browser and access http://localhost:8000 to start using the Latin to English translator.
+- Open your browser and access http://localhost:8001 to start using the Latin to English translator.
 
 ## Usage
 
@@ -69,6 +69,39 @@ Simply type or paste the Latin text you want translated into the input field on 
 
 Feel free to fork the repository, make changes, and submit pull requests. We appreciate your contributions to improve the application!
 
+
+## How the Model Works
+
+This Latin to English translator utilizes multiple layers of API calls to different models with different prompts to produce the translations.  The rough idea is as follows: 
+
+```mermaid
+graph TD
+    A[User Input Latin Text] 
+    -->|GPT - 3.5 | B(Fine-Tuned Attempt 1)
+    A --> |GPT - 3.5 | C(Fine-Tuned Attempt 2)
+    A --> |GPT - 3.5 |D(Fine-Tuned Attempt 3)
+    A -->|GPT - 3.5 | E(Fine-Tuned Attempt 4)
+    A -->|GPT - 3.5 | F(Fine-Tuned Attempt 5)
+
+    B --> |GPT -4 | G[Revision Layer 1]
+    C --> |GPT -4 |H[Revision Layer 2]
+    D -->  |GPT -4 |I[Revision Layer 3]
+    E -->  |GPT -4 |J[Revision Layer 4]
+    F -->  |GPT -4 |K[Revision Layer 5]
+
+    G -->  L{Filter Layer}
+    H --> L
+    I --> L
+    J --> L
+    K --> L
+
+    L --> |GPT -4 | M[Final Revision Layer]
+    M --> |GPT -4 | N[Final Translation]
+```
+
+This approach consists of multiple steps and translation attempts. Given a user input of a Latin text the model proceeds to, in parallel, produce five different attempts using the model fine tuned on the data. These five attempts are then revised in a call to GPT-4, while still in parallel. Then after gathering these 5 revised attempts we do two calls to GPT-4, one to select the best translation and the other to revise it once more. 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+
