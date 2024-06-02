@@ -66,24 +66,36 @@ We recommend using Visual Studio Code (VSCode) as it is free, open-source, and s
 2. Navigate to the Extensions view by clicking on the square icon on the sidebar or pressing `Ctrl+Shift+X`.
 3. Search for the `GitHub Pull Requests and Issues` extension and install it.
 4. Once installed, authenticate with GitHub by following the prompts which appear when you start a Git operation within VSCode.
-5. 
 
-#### Cloning the Repository
-To clone the repository using VSCode, follow these steps:
+### Cloning the Repository
 
-- Open VSCode.
-- Go to the `View` menu and select `Command Palette`.
-- Type `Git: Clone` and press Enter.
-- Paste the URL of the repository when prompted.
-- Choose a local directory to clone the repository into.
-- Once cloned, open the repository folder in VSCode.
+To clone the repository using Visual Studio Code (VSCode), follow these steps:
 
-Alternatively, you can clone using the terminal:
+1. **Open VSCode.**
+2. **Access Command Palette:**
+   - Go to the `View` menu and select `Command Palette`.
+   - Type `Git: Clone` and press Enter.
+3. **Enter Repository URL:**
+   - Paste the repository URL `https://github.com/paulrosu11/Latin_Translator` when prompted.
+4. **Choose Local Directory:**
+   - Select a local directory where you want to clone the repository.
+5. **Open Repository in VSCode:**
+   - Once cloned, open the repository folder in VSCode.
 
-- Open Terminal on Mac or PowerShell on Windows.
-- Navigate to the directory where you want to clone the repository.
-- Type `git clone https://github.com/your-username/your-repo-name.git` and press Enter.
-- Enter your GitHub credentials if prompted.
+Alternatively, you can clone the repository using the terminal:
+
+1. **Open Terminal on Mac or PowerShell on Windows.**
+2. **Navigate to Desired Directory:**
+   - Use the `cd` command to navigate to the directory where you want to clone the repository.
+3. **Clone Repository:**
+   - Type the following command and press Enter:
+     ```
+     git clone https://github.com/paulrosu11/Latin_Translator.git
+     ```
+4. **Enter GitHub Credentials:**
+   - If prompted, enter your GitHub credentials.
+
+By following these steps, you should have the repository cloned and ready to use on your local machine.
 
 ### Configuring the OpenAI API Key
 - Create an account at [OpenAI](https://platform.openai.com/signup).
