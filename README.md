@@ -103,9 +103,37 @@ By following these steps, you should have the repository cloned and ready to use
 - In your project directory, find the file named `translate.ts`under the folder `server` and replace `"replace with your api key"` on line 6 with your newly generated API key.
 
 ### Fine-Tuning the Model
-- To fine-tune a model based on the provided data:
-- Navigate to [OpenAI's fine-tuning page](https://platform.openai.com/docs/guides/fine-tuning), follow the instructions to submit my training data included in the code you downloaded. 
-- Once the fine-tuning job is complete, replace `"Replace with your fine tuned model name, should look like ft:gpt-3.5-turbo-0125:..."` on line 51 in the `translate.ts` file with the job name provided by OpenAI.
+
+To fine-tune a model based on the provided data, follow these steps:
+
+1. **Navigate to OpenAI's Fine-Tuning Page:**
+   - Go to [OpenAI's fine-tuning page](https://platform.openai.com/finetune).
+
+2. **Create a Fine-Tuning Job:**
+   - Click the **Create** button in the top right corner.
+
+3. **Select Base Model:**
+   - Choose `gpt-3.5-turbo-0125` as the base model.
+
+4. **Upload Training Data:**
+   - Upload the provided training data file from your project directory.
+
+5. **Set Hyperparameters:**
+   - Leave the hyperparameters as `Auto`.
+   - Set the seed to `Random`.
+   - Leave the validation metrics section empty.
+
+6. **Initiate Fine-Tuning:**
+   - Click the **Create** button to start the fine-tuning process.
+
+7. **Wait for Completion:**
+   - Wait for the fine-tuning job to complete. This may take some time depending on the current server load.
+
+8. **Update Model in Code:**
+   - Once the fine-tuning job is complete, you will receive a job name for your fine-tuned model.
+   - In your project directory, open the file named `translate.ts` under the folder `server`.
+   - Replace `"Replace with your fine tuned model name, should look like ft:gpt-3.5-turbo-0125:..."` on line 51 with your newly generated fine-tuned model name.
+
 
 ### Running the Application
 - Open a terminal at the project folder.
